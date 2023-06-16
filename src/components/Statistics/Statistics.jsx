@@ -1,19 +1,21 @@
-const Statistics = ({ options, stateItems, title }) => {
+import PropTypes from 'prop-types';
 
-  const StatItems = options.map(option =>
-    <li key={option}>
-      {option.charAt(0).toUpperCase() + option.slice(1)}: {stateItems[option]}
-    </li>
-  );
-  
-  return (
-    <div>
-      <h2>{title}</h2>
-      <ul>
-        {StatItems}
-      </ul>
-    </div>
-  );
+const Statistics = props => {
+  const options = Object.keys(props);
+
+  return options.map(option => <p key={option}>
+    {option === "positivePercentage" ? "Positive feedback" : option}: {props[option]}
+  </p>)
 };
 
 export default Statistics;
+
+Statistics.propTypes = {
+  props: PropTypes.exact({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.string.isRequired
+  })
+};
