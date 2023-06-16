@@ -1,14 +1,14 @@
-const Statistics = ({ items, options }) => {
+const Statistics = ({ options, stateItems, title }) => {
 
   const StatItems = options.map(option =>
     <li key={option}>
-      {option.charAt(0).toUpperCase() + option.slice(1)}: {items[option]}
+      {option.charAt(0).toUpperCase() + option.slice(1)}: {stateItems[option]}
     </li>
   );
-  console.log(items)
+  
   return (
     <div>
-      <h2>Statistics</h2>
+      <h2>{title}</h2>
       <ul>
         {StatItems}
       </ul>
