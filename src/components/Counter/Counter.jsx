@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Statistics from "components/Statistics/Statistics";
+// import Statistics from "components/Statistics/Statistics";
 
 class Counter extends Component {
   state = {
@@ -12,10 +12,8 @@ class Counter extends Component {
     this.setState((prevState) => {
       prevState[option] += 1;
     });
-    console.log(this.state)
+    console.log(this.state);
   };
-
-
 
   render() {
     const options = Object.keys(this.state);
@@ -24,6 +22,11 @@ class Counter extends Component {
         {option.charAt(0).toUpperCase() + option.slice(1)}
       </button>
     );
+    const StatItems = options.map(option =>
+      <li key={option}>
+        {option.charAt(0).toUpperCase() + option.slice(1)}: {this.state[option]}
+      </li>
+    );
     
     return (
       <>
@@ -31,9 +34,13 @@ class Counter extends Component {
         <div>
           {counterBtns}
         </div>
-        <Statistics items={this.state} />
+        <div>
+          <h2>Statistics</h2>
+          <ul>
+            {StatItems}
+          </ul>
+        </div>
       </>
-      
     );
   };
 };
