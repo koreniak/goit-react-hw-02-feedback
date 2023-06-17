@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
+import { StatisticsField, StatisticsItem } from './Statistics.styled';
 
 const Statistics = props => {
   const options = Object.keys(props);
 
-  return options.map(option => <p key={option}>
-    {option === "positivePercentage" ? "Positive feedback" : option}: {props[option]}
-  </p>)
+  return <StatisticsField>
+          {options.map(option =>
+            <StatisticsItem key={option}>
+              {option === "positivePercentage" ? "Positive feedback" : option}: {props[option]}
+            </StatisticsItem>)}
+        </StatisticsField>
 };
-
-export default Statistics;
 
 Statistics.propTypes = {
   props: PropTypes.exact({
@@ -19,3 +21,5 @@ Statistics.propTypes = {
     positivePercentage: PropTypes.string.isRequired
   })
 };
+
+export default Statistics;

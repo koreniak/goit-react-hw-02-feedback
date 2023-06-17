@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
+import { CounterBtn, CounterField } from './FeedbackOptions.styled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  return options.map(option =>
-    <button type="button" key={option} onClick={() => onLeaveFeedback(option)}>
-      {option}
-    </button>);
+  return <CounterField>{options.map(option =>
+          <CounterBtn type="button" key={option} onClick={() => onLeaveFeedback(option)}>
+            {option}
+          </CounterBtn>)}
+        </CounterField>;
 };
-    
-export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.elementType.isRequired
 };
+
+export default FeedbackOptions;
