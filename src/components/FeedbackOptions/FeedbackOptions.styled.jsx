@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const CounterBtn = styled.button`
+export const FeedbackBtn = styled.button`
   min-width: 160px;
   padding: 16px 32px;
 
@@ -31,7 +31,7 @@ export const CounterBtn = styled.button`
 	}
 `;
 
-export const CounterField = styled.div`
+export const FeedbackField = styled.div`
 	display: inline-block;
 	padding: 8px;
 `;
